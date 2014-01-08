@@ -3,7 +3,7 @@
 
 #include <setjmp.h>
 
-extern jmp_buff __ctry_jmp_data;
+extern jmp_buf __ctry_jmp_data;
 
 #define CTRY                             \
 do {                                     \

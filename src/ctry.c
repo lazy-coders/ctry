@@ -1,11 +1,13 @@
+#include <stdlib.h>
+#include <string.h>
 #include <ctry.h>
 
 
-extern jmp_buff __ctry_jmp_data;
+extern jmp_buf __ctry_jmp_data;
 
 struct __ctry_stack {
-	struct __ctry_stack next;
-	jmp_buff            jmp_data;
+	struct __ctry_stack* next;
+	jmp_buf              jmp_data;
 };
 
 typedef struct __ctry_stack __ctry_stack;
@@ -23,7 +25,7 @@ void __ctry_push_jmp_state() {
 	}
 
 	node->next = ctry_stack;
-	node->jmp_data = __ctry_jmp_data;
+	memcpy(node->jmp_data, __ctry_jmp_data, sizeof(__ctry_jmp_data));
 	ctry_stack = node;
 }
 
@@ -33,10 +35,10 @@ void __ctry_push_jmp_state() {
 void __ctry_pop_jmp_state() {
 	__ctry_stack* node;
 
-	node = __ctry_stack;
-	__ctry_stack = node->next;
+	node = ctry_stack;
+	ctry_stack = node->next;
 
-	__ctry_jmp_data = node->jmp_data;
+	memcpy(__ctry_jmp_data, node->jmp_data, sizeof(__ctry_jmp_data));
 
 	free(node);
 }
