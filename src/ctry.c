@@ -3,7 +3,7 @@
 #include <ctry.h>
 
 
-extern jmp_buf __ctry_jmp_data;
+jmp_buf __ctry_jmp_data;
 
 struct __ctry_stack {
 	struct __ctry_stack* next;

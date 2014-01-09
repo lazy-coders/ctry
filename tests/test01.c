@@ -1,4 +1,5 @@
-#nclude <ctry.h>
+#include <ctry.h>
+#include <stdio.h>
 
 int main(void) {
 	CTRY {

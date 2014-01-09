@@ -2,12 +2,13 @@
 #define __CTRY_H__
 
 #include <setjmp.h>
+#include <stdlib.h>
 
 extern jmp_buf __ctry_jmp_data;
 
 #define CTRY                             \
 do {                                     \
-	switch(setjmp(__ctry_jmp_inf)) {     \
+	switch(setjmp(__ctry_jmp_data)) {     \
 		case 0:                          \
 			__ctry_push_jmp_state();     \
 			do {
