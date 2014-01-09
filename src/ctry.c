@@ -51,5 +51,5 @@ int inside_ctry_block() {
 	return ctry_stack != NULL;	
 }
 
-//vim:ts=4:sw=4:cindent
+// vim:ts=4:sw=4:cindent
 

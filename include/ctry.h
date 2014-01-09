@@ -85,5 +85,5 @@ int inside_ctry_block();
 
 #endif
 
-//vim:ts=4:sw=4:cindent
+// vim:ts=4:sw=4:cindent
 
