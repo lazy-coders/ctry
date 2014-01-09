@@ -50,3 +50,6 @@ void __ctry_pop_jmp_state() {
 int inside_ctry_block() {
 	return ctry_stack != NULL;	
 }
+
+//vim:ts=4:sw=4:cindent
+
