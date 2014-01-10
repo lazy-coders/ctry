@@ -6,7 +6,7 @@ int main(void) {
 		printf("Throwing error inside CTRY body...");
 		CTHROW(1);
 	}
-	CCATCH {
+	CCATCH(1) {
 		printf("Error catched\n");
 	}
 	CENDTRY;
