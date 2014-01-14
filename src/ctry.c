@@ -3,7 +3,7 @@
 #include <ctry.h>
 
 
-jmp_buf __ctry_jmp_data;
+jmp_buf __ctry_jmp_data = {0};
 
 struct __ctry_stack {
 	struct __ctry_stack* next;
@@ -19,7 +19,7 @@ static __ctry_stack* ctry_stack = NULL;
  */
 void __ctry_push_jmp_state() {
 	__ctry_stack* node;
-	node = (__ctry_stack*)malloc(sizeof(__ctry_stack));
+	node = (__ctry_stack*)calloc(1, sizeof(__ctry_stack));
 	if (!node) {
 		abort();
 	}
@@ -38,9 +38,14 @@ void __ctry_pop_jmp_state() {
 	node = ctry_stack;
 	ctry_stack = node->next;
 
-	memcpy(__ctry_jmp_data, node->jmp_data, sizeof(__ctry_jmp_data));
-
 	free(node);
+
+	if (ctry_stack != NULL) {
+		memcpy(__ctry_jmp_data, ctry_stack->jmp_data, sizeof(__ctry_jmp_data));
+	}
+	else {
+		memset(__ctry_jmp_data, 0, sizeof(__ctry_jmp_data));
+	}
 }
 
 /**
