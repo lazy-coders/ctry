@@ -11,6 +11,7 @@ code and improve the code legibility.
 How to use
 ----------
 
+	```c
 	CTRY {
 		if ((file = fopen("somefile.txt", "rb")) == NULL)
 			CTHROW(1);
@@ -25,12 +26,13 @@ How to use
 		exit(1);
 	}
 	CENDTRY;
+	```
 
 Plannification
 --------------
 
-1. ~~Very basic CTRY exception system.~~
-2. Personalized exceptions.
-3. Finally block implementation.
-4. Basic I/O with exception support.
-5. Multithread support.
+[X] Very basic CTRY exception system.
+[ ] Personalized exceptions.
+[ ] Finally block implementation.
+[ ] Basic I/O with exception support.
+[ ] Multithread support.
