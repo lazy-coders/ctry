@@ -1,8 +1,11 @@
 #include <ctry.h>
 #include <stdio.h>
 
+#define TRY01     1
+#define TRY02     2
+
 int main(void) {
-	int ret = 2;
+	int ret = 3;
 	CTRY {
 		CTRY {
 			printf("Throwing error inside double CTRY body...");
@@ -10,7 +13,7 @@ int main(void) {
 		}
 		CCATCH(1) {
 			printf(" 1. Error catched\n");
-			ret --;
+			ret &= ~TRY01;
 		}
 		CENDTRY;
 
@@ -19,7 +22,7 @@ int main(void) {
 	}
 	CCATCH(1) {
 		printf("2. Error catched\n");
-		ret --;
+		ret &= ~TRY02;
 	}
 	CENDTRY;
 
