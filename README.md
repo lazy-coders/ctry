@@ -14,9 +14,14 @@ How to use
 	CTRY {
 		if ((file = fopen("somefile.txt", "rb")) == NULL)
 			CTHROW(1);
+
+		if (fwrite("Hello", 5, 1, file) != 1)
+			CTHROW(1);
+
+		fclose(file);
 	}
 	CATCH(x) {
-		fprintf(stderr, "The cannot be opened!\n");
+		fprintf(stderr, "IO error!\n");
 		exit(1);
 	}
 	CENDTRY;
@@ -24,7 +29,7 @@ How to use
 Plannification
 --------------
 
-1. Very basic CTRY exception system.
+1. ~~Very basic CTRY exception system.~~
 2. Personalized exceptions.
 3. Finally block implementation.
 4. Basic I/O with exception support.
