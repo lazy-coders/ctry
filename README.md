@@ -1,15 +1,12 @@
-CTRY
-====
-
 Introduction
-------------
+============
 
 CTRY is an impementation of exceptions in C language. It simulates the
 functionallity of try-catch system of C++ to simplify the error management in
 code and improve the code legibility.
 
 How to use
-----------
+==========
 
 ```c
 CTRY {
@@ -28,8 +25,8 @@ CATCH(x) {
 CENDTRY;
 ```
 
-Plannification
---------------
+Planning
+========
 
 - [X] Very basic CTRY exception system.
 - [ ] Personalized exceptions.
