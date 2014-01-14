@@ -11,22 +11,22 @@ code and improve the code legibility.
 How to use
 ----------
 
-	```c
-	CTRY {
-		if ((file = fopen("somefile.txt", "rb")) == NULL)
-			CTHROW(1);
+```c
+CTRY {
+	if ((file = fopen("somefile.txt", "rb")) == NULL)
+		CTHROW(1);
 
-		if (fwrite("Hello", 5, 1, file) != 1)
-			CTHROW(1);
+	if (fwrite("Hello", 5, 1, file) != 1)
+		CTHROW(1);
 
-		fclose(file);
-	}
-	CATCH(x) {
-		fprintf(stderr, "IO error!\n");
-		exit(1);
-	}
-	CENDTRY;
-	```
+	fclose(file);
+}
+CATCH(x) {
+	fprintf(stderr, "IO error!\n");
+	exit(1);
+}
+CENDTRY;
+```
 
 Plannification
 --------------
