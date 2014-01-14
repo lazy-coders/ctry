@@ -8,12 +8,12 @@ extern jmp_buf __ctry_jmp_data;
 
 #define CTRY                             \
 do {                                     \
-	switch(setjmp(__ctry_jmp_data)) {     \
+	switch(setjmp(__ctry_jmp_data)) {    \
 		case 0:                          \
 			__ctry_push_jmp_state();     \
 			do {
 
-#define CCATCH                           \
+#define CCATCH(ex)                       \
 			} while(0);                  \
 			__ctry_pop_jmp_state();      \
 			break;                       \
@@ -84,4 +84,6 @@ int inside_ctry_block();
 #endif
 
 #endif
+
+// vim:ts=4:sw=4:cindent
 
