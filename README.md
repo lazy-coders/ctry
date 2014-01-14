@@ -31,8 +31,8 @@ CENDTRY;
 Plannification
 --------------
 
-[X] Very basic CTRY exception system.
-[ ] Personalized exceptions.
-[ ] Finally block implementation.
-[ ] Basic I/O with exception support.
-[ ] Multithread support.
+- [X] Very basic CTRY exception system.
+- [ ] Personalized exceptions.
+- [ ] Finally block implementation.
+- [ ] Basic I/O with exception support.
+- [ ] Multithread support.
