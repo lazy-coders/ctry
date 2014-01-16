@@ -33,7 +33,7 @@ do {                                     \
 			} while(0);                  \
 			__ctry_pop_jmp_state();      \
 			break;                       \
-		case 1:                          \
+		case ex:                         \
 			__ctry_pop_jmp_state();      \
 			do {
 
@@ -46,7 +46,7 @@ do {                                     \
 #define CTHROW(x)                        \
 do {                                     \
 	if (inside_ctry_block()) {           \
-		longjmp(__ctry_jmp_data, 1);     \
+		longjmp(__ctry_jmp_data, x);     \
 	}                                    \
 	else {                               \
 		abort();                         \

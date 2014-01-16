@@ -10,3 +10,6 @@ target_link_libraries(test02 ctry)
 
 add_executable(test03 test03.c)
 target_link_libraries(test03 ctry)
+
+add_executable(test04 test04.c)
+target_link_libraries(test04 ctry)
