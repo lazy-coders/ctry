@@ -52,9 +52,11 @@ void __ctry_pop_jmp_state() {
 	__ctry_stack* node;
 
 	node = ctry_stack;
-	ctry_stack = node->next;
+	if (node != NULL) {
+		ctry_stack = node->next;
 
-	free(node);
+		free(node);
+	}
 
 	if (ctry_stack != NULL) {
 		memcpy(__ctry_jmp_data, ctry_stack->jmp_data, sizeof(__ctry_jmp_data));
